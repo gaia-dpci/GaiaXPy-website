@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>TOPCAT tutorial</title>
+  <link rel="icon" type="image/x-icon" href="topcat_tutorial/GaiaXPy.png">
+</head>
+
+<body bgcolor="white">
+  <h1 align="center">
+    <img src="topcat_tutorial/tc_sok.png" width="72" height="72" align="middle">
+    <img src="topcat_tutorial/GaiaXPy.png" width="72" height="72" align="middle">
+  </h1>
+    <h2 align="center">
+        How to use TOPCAT to plot GaiaXPy data
+    </h2>
+            <div>
+                <dl>
+                </dl>
+            </div>
+        </font>
+        <hr>
+        <ul>
+            <li>
+                <a href="#intro">About TOPCAT</a>
+            </li>
+            <li>
+                <a href="#features">Which GaiaXPy tools work with TOPCAT?</a>
+            </li>
+            <li>
+                <a href="#gui">Plotting through the GUI</a>
+            </li>
+            <li>
+                <a href="#stilts">Plotting with STILTS</a>
+            </li>
+        </ul>
+        <hr>
+        <h2>
+            <a name="intro"></a><img src="topcat_tutorial/tc_sok_24.png" alt="* " width="24" height="24"> About TOPCAT
+        </h2>
+        <p><a href="http://www.star.bris.ac.uk/~mbt/topcat/">TOPCAT</a> is a GUI desktop table manipulation application for working with tabular data, and <a href="http://www.starlink.ac.uk/stilts/">STILTS</a> is its command-line counterpart. These applications can work with the output from GaiaXPy, including plotting spectra.</p>
+
+        <p>TOPCAT can plot columns containing arrays such as spectra using the XYArray layer control from its Plane Plot window. This requires you to supply expressions that give, for each row in the table, matching arrays of X and Y values, so that one spectrum is plotted for each table row. For GaiaXPy output, the Y values are usually given by one of the array-valued columns such as flux, while the X (wavelength-like) values are supplied as an array-valued table parameter - an item of per-table metadata that can be seen in the Parameters window - with the name "sampling". This can be referenced in TOPCAT's expression language, and hence specified for plotting, by writing "param$sampling".</p>
+
+        <p>If you select a GaiaXPy output file for plotting in the XYArray layer control, TOPCAT will usually fill in these values for you, but you can adjust the default settings, for instance to plot a different array-valued column from the table, include error bars, add mean/median/quantile spectra summarising all plotted rows, or perform algebraic manipulation on the input spectrum or sampling arrays.</p>
+
+        <p>
+          Its underlying table processing facilities are provided by the related packages <a href="http://www.starlink.ac.uk/stil/">STIL</a> and
+          <a href="http://www.starlink.ac.uk/stilts/">STILTS</a>.
+        </p>
+        <p>
+          More information about TOPCAT (including downloads) can be found <a href="http://www.star.bris.ac.uk/~mbt/topcat/">here</a>.
+        </p>
+        <hr>
+        <h2>
+            <a name="features"></a><img src="topcat_tutorial/GaiaXPy.png" alt="* " width="24" height="24"> Which GaiaXPy tools work with TOPCAT?
+        </h2>
+        <p>
+          TOPCAT can read any file produced by GaiaXPy. Although, only the output of any GaiaXPy tool that requires/produces a sampling can be plotted.</p>
+        <p> To plot GaiaXPy data, the sampling needs to be included in the file, which is the case with FITS and XML files. CSV and ECSV files cannot be used
+          for plotting as the sampling comes as a separate file.</p>
+        <p>Therefore, the FITS and XML output of the calibrator, converter, and sampled simulator can be plotted.</p>
+
+        <hr>
+
+        <h2>
+            <a name="gui"></a><img src="topcat_tutorial/tc_sok_24.png" alt="* " width="24" height="24"> Plotting using the GUI
+        </h2>
+
+        <p>In TOPCAT, open a new table:</p>
+
+        <div>
+            <img src="topcat_tutorial/open.png" width="600" border="0">
+        </div>
+
+        <p>A new window will open. Click on Filestore Browser:</p>
+
+        <div>
+            <img src="topcat_tutorial/browse.png" width="500" border="0">
+        </div>
+
+        <p>Navigate and select the file you want to open, then click OK:</p>
+
+        <div>
+            <img src="topcat_tutorial/ok.png" width="400" border="0">
+        </div>
+
+        <p>You should see you table in the Table list. Click on "Plane plotting window":</p>
+
+        <div>
+            <img src="topcat_tutorial/plane.png" width="600" border="0">
+        </div>
+
+        <p>Click on "Add a new array pair plot control to the stack":</p>
+
+        <div>
+            <img src="topcat_tutorial/plane-plot.png" width="460" border="0">
+        </div>
+
+        <p>Select the table you want to plot":</p>
+
+        <div>
+            <img src="topcat_tutorial/select-table-plot.png" width="460" border="0">
+        </div>
+
+        <p>TOPCAT will automatically select the right parameters to create a spectra plot:</p>
+
+        <div>
+            <img src="topcat_tutorial/get-plot.png" width="460" border="0">
+        </div>
+
+        <hr>
+
+        <h2>
+            <a name="stilts"></a><img src="topcat_tutorial/tc_sok_24.png" alt="* " width="24" height="24"> Plotting with STILTS
+        </h2>
+        <p>You can also generate plots from the command line using
+        <a href="http://www.starlink.ac.uk/stilts/">STILTS</a>.
+        A convenient way to do this is to set the plot
+        up in TOPCAT and then use the
+        <a href="http://www.starlink.ac.uk/topcat/sun253/StiltsControl.html"
+           >STILTS control</a>
+        to display a command which you can use and adjust to taste.
+        Some examples are below.
+
+        <p>Plot flux spectra:
+        <pre>
+           stilts plot2plane in=calibrator.fits xs='param$sampling' ys=flux layer1=lines
+        </pre>
+
+        <p>Plot spectra with errors:
+        <pre>
+           stilts plot2plane in=calibrator.fits xs='param$sampling' ys=flux
+                  layer1=lines
+                  layer2=yerrors yerrhis=flux_error
+        </pre>
+        <dl>
+
+        <hr>
+</body></html>
