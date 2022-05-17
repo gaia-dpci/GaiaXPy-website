@@ -14294,7 +14294,7 @@ a.anchor-link {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h4 id="The-calibrator-returns-two-different-outputs:">The calibrator returns two different outputs:<a class="anchor-link" href="#The-calibrator-returns-two-different-outputs:">&#182;</a></h4><ol>
 <li>The calibrated spectra which is a pandas DataFrame.</li>
-<li>The sampling passed to the function which is a NumPy array. If no sampling is given, the default sampling  is returned. The default sampling is generated internally and it corresponds to numpy.arange(336., 1201., 2.) in absolute wavelengths [nm].</li>
+<li>The sampling passed to the function which is a NumPy array. If no sampling is given, the default sampling is returned. The default sampling is generated internally and it corresponds to numpy.arange(336., 1201., 2.) in absolute wavelengths [nm].</li>
 </ol>
 
 </div>
@@ -14723,7 +14723,7 @@ OK
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>A sampling can be passed to the function. This sampling should be an iterable (list, tuple, generator, or preferably a NumPy array). If no sampling is given, the default sampling is returned.</p>
+<p>A sampling can be passed to the function. This sampling should be an iterable (list, tuple, generator, or preferably a NumPy array). If no sampling is given, the default sampling is used and returned.</p>
 <p>The default sampling of the calibrator corresponds to numpy.arange(336., 1201., 2.) in absolute wavelengths [nm], and it is generated internally when no sampling is explicitly passed to the function.</p>
 <p>The minimum value allowed in the sampling is 330, and the maximum is 1050. The program will raise an error is the sampling does not comply.</p>
 
@@ -14731,7 +14731,7 @@ OK
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>For example, the sampling numpy.geomspace(330,1049.9999999999, 361) is suggested to improve the resolution at the blue end.</p>
+<p>The sampling can be tailored to the needs of specific science cases. For example, the sampling numpy.geomspace(330,1049.9999999999, 361) could be employed to improve the resolution at the blue end.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
