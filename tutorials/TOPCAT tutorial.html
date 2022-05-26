@@ -33,6 +33,9 @@
             <li>
                 <a href="#stilts">Plotting with STILTS</a>
             </li>
+            <li>
+                <a href="#functions">Array Manipulation</a>
+            </li>
         </ul>
         <hr>
         <h2>
@@ -142,6 +145,41 @@ This requires you to supply expressions that give, for each row in the table, ma
                   layer2=yerrors yerrhis=flux_error
         </pre>
         <dl>
+
+        <hr>
+
+        <h2>
+            <a name="functions"></a><img src="topcat_tutorial/tc_sok_24.png" alt="* " width="24" height="24">Array Manipulation
+        </h2>
+        <p>TOPCAT and STILTS include a powerful
+        <a href="http://www.starlink.ac.uk/topcat/sun253/jel.html">expression language</a>
+        that allow you to plot (and otherwise make use of) values obtained
+        from columns in the table, as well as the column values themselves.
+        For working with spectral data, a number of functions are provided
+        to operate on arrays; documentation can be found in the
+        <a href="http://www.starlink.ac.uk/topcat/sun253/Arrays.html">Arrays class</a>
+        section of the manual
+        or browsed under "Arrays" in TOPCAT's
+        <a href="http://www.starlink.ac.uk/topcat/sun253/MethodWindow.html">Available Functions Window</a>.
+        Some examples of expressions involving GaiaXPy-type arrays are:
+        </p>
+        <dl>
+        <dt>Convert (pseudo-)wavelength from nm to &#x212B;ngstrom:</dt>
+        <dd><pre>multiply(param$sampling, 10.0)</pre></dd>
+        <dt>Convert (pseudo-)wavelength in nm to (pseudo-)frequency in Hz:</dt>
+        <dd><pre>multiply(reciprocal(param$sampling), C_KMS*1e12)</pre></dd>
+        <dt>Upper bound by adding error to flux:</dt>
+        <dd><pre>add(flux, flux_error)</pre></dd>
+        <dt>Normalise spectrum by mean value:</dt>
+        <dd><pre>multiply(flux, 1./mean(flux))</pre></dd>
+        <dt>Take logarithm of each flux array element:</dt>
+        <dd><pre>arrayFunc("log10(x)", flux)</pre></dd>
+        </dl>
+
+        <p>Expressions like these can be typed directly into the plotting
+        window coordinate fields or used to create new columns.
+        More examples can be found in the documentation, as above.
+        </p>
 
         <hr>
 </body></html>
