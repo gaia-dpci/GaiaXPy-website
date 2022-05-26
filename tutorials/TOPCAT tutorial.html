@@ -38,9 +38,13 @@
         <h2>
             <a name="intro"></a><img src="topcat_tutorial/tc_sok_24.png" alt="* " width="24" height="24"> About TOPCAT
         </h2>
-        <p><a href="http://www.star.bris.ac.uk/~mbt/topcat/">TOPCAT</a> is a GUI desktop table manipulation application for working with tabular data, and <a href="http://www.starlink.ac.uk/stilts/">STILTS</a> is its command-line counterpart. These applications can work with the output from GaiaXPy, including plotting spectra.</p>
+        <p><a href="http://www.starlink.ac.uk/topcat/">TOPCAT</a> is a GUI desktop table manipulation application for working with tabular data, and <a href="http://www.starlink.ac.uk/stilts/">STILTS</a> is its command-line counterpart. These applications can work with the output from GaiaXPy, including plotting spectra.</p>
 
-        <p>TOPCAT can plot columns containing arrays such as spectra using the XYArray layer control from its Plane Plot window. This requires you to supply expressions that give, for each row in the table, matching arrays of X and Y values, so that one spectrum is plotted for each table row. For GaiaXPy output, the Y values are usually given by one of the array-valued columns such as flux, while the X (wavelength-like) values are supplied as an array-valued table parameter - an item of per-table metadata that can be seen in the Parameters window - with the name "sampling". This can be referenced in TOPCAT's expression language, and hence specified for plotting, by writing "param$sampling".</p>
+        <p>TOPCAT can plot columns containing arrays such as spectra using the
+<a href="http://www.starlink.ac.uk/topcat/sun253/GangLayerControl_xyarray.html">XYArray layer control</a> from its
+<a href="http://www.starlink.ac.uk/topcat/sun253/PlanePlotWindow.html">Plane Plot window</a>.
+This requires you to supply expressions that give, for each row in the table, matching arrays of X and Y values, so that one spectrum is plotted for each table row. For GaiaXPy output, the Y values are usually given by one of the array-valued columns such as flux, while the X (wavelength-like) values are supplied as an array-valued table parameter - an item of per-table metadata that can be seen in the 
+<a href="http://www.starlink.ac.uk/topcat/sun253/ParameterWindow.html">Parameters Window</a> - with the name "sampling". This can be referenced in TOPCAT's expression language, and hence specified for plotting, by writing "param$sampling".</p>
 
         <p>If you select a GaiaXPy output file for plotting in the XYArray layer control, TOPCAT will usually fill in these values for you, but you can adjust the default settings, for instance to plot a different array-valued column from the table, include error bars, add mean/median/quantile spectra summarising all plotted rows, or perform algebraic manipulation on the input spectrum or sampling arrays.</p>
 
@@ -49,7 +53,7 @@
           <a href="http://www.starlink.ac.uk/stilts/">STILTS</a>.
         </p>
         <p>
-          More information about TOPCAT (including downloads) can be found <a href="http://www.star.bris.ac.uk/~mbt/topcat/">here</a>.
+          More information about TOPCAT (including downloads) can be found <a href="http://www.starlink.ac.uk/topcat/">here</a>.
         </p>
         <hr>
         <h2>
