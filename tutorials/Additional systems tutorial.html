@@ -14701,8 +14701,9 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>The additional systems will be loaded through the function <code>load_additional_systems</code>. To load the systems there are two options: 1) passing a path to the folder where the systems are contained directly to the function or 2) passing the path when prompted.</p>
+<p>The input directory can contain nested files (files that are inside other folders in the directory). GaiaXPy will look for system files recursively in the given path.</p>
 <p><strong>Note: If some filters in the directory do not correspond to systems files, the program will show a warning and will then ignore these files.</strong></p>
-
+    <p><strong>Note: If two systems with the same name were found in the given directory and error will be raised an no systems will be loaded.</strong></p>
 </div>
 </div>
 </div>
@@ -14714,7 +14715,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">PhotometricSystem</span> <span class="o">=</span> <span class="n">load_additional_systems</span><span class="p">(</span><span class="s1">&#39;/path/to/additional_filters&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">PhotometricSystem</span> <span class="o">=</span> <span class="n">load_additional_systems</span><span class="p">(</span><span class="s1">&#39;/path/to/additional_filters_directory&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
