@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SVO tutorials</title>
+</head>
+<body>
+  <header>
+    <h1>How to download SVO-GaiaXPy filter files</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#step1">Option 1: Browser</a></li>
+      <li><a href="#step2">Option 2: wget command</a></li>
+      <li><a href="#note">Important notes</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section id="introduction">
+      <h2>Introduction</h2>
+      <p>SVO has made available a set of additional filter files that can be used in GaiaXPy to generate synthetic photometry. Users wishing to generate synthetic photometry from these files will need to download the bases from their website, and then load them into GaiaXPy. Only one file needs to be downloaded for each system. This file will contain information for all of the bands.</p>
+      <p>The main webpage from where users can download these files can be found at the following link: <a href="http://svo2.cab.inta-csic.es/theory/fps/">SVO Filter Profile Service</a>.</p>
+      <p>A tutorial on how to load these filters can be found <a href="https://gaia-dpci.github.io/GaiaXPy-website/tutorials/Additional%20systems%20tutorial.html">here</a>.
+      <p>There are two basic ways in which the files can be downloaded: 1) directly from the webpage in a browser and 2) programmatically through the <code>wget</code> command.
+    </section>
+    <section id="step1">
+      <h2>Option 1: Browser</h2>
+      <p>Access the <a href="http://svo2.cab.inta-csic.es/theory/fps/">SVO Filter Profile Service</a>. The page at the date this tutorial has been written (2023/02/10) looks the following:</p>
+      <img src="svo_download/svomain.png" alt="SVO Filter Profile Service" width="900">.
+      <hr color="gray" align="left" width="900px">
+      <p>The page allows users to select any of the filters, although GaiaXPy files are not available for all of them.</p>
+      <p>For example, if LSST is selected, the following page will open, click on any of the links indicated by the red rectangle.</p>
+      <img src="svo_download/svolsst.png" alt="LSST sub page" width="900">
+      <hr color="gray" align="left" width="900px">
+      <p>A page containing the description of the filter will open, if a GaiaXPy file is available, this will be shown the near the bottom of the page.</p>
+      <p>Click on the link indicated by the red rectangle to download the file.</p>
+      <img src="svo_download/svofilterdesc.png" alt="Filter description" width="900">
+      <hr color="gray" align="left" width="900px">
+    </section>
+    <section id="step2">
+      <h2>Option 2: wget command</h2>
+      <p>If the link to a file is known, the file can be retrieved with the <code>wget</code> command.</p>
+      <p>If <code>http://svo2/getgaiaxpy.php\?gxpyid\=Filter/Filter</code> is the link to a filter, <code>wget</code> can be used in the following way:</p>
+      <code>wget --content-disposition -P outputdir/ http://svo2/getgaiaxpy.php\?gxpyid\=Filter/Filter</code>.
+      <p>The <code>--content-disposition</code> option is required to preserve the original file name which contains important information.</p>
+      <hr color="gray" align="left" width="900px">
+    </section>
+    <section id="note">
+      <h2>Important notes</h2>
+       <ul>
+        <li>Information about the filter is encoded in the file name, you should not modify the original name.</li>
+        <li>As previously indicated, only one file needs to be downloaded for each filter, this file contains information for every band in the system.</li>
+      </ul>
+      <hr color="gray" align="left" width="900px">
+    </section>
+  </main>
+  <footer>
+    <p>
+      <a>href="https://www.cosmos.esa.int/web/gaia/dpac/consortium">DPAC</a>, CU5, DPCI. Copyright 2023.
+    </p>
+  </footer>
+</body>
+</html>
