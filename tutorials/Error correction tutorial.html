@@ -14403,7 +14403,7 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># File with input data</span>
-<span class="n">f</span> <span class="o">=</span> <span class="s1">&#39;/home/drm/GaiaXPy/tests/files/xp_continuous/XP_CONTINUOUS_RAW_dr3int6.ecsv&#39;</span>
+<span class="n">f</span> <span class="o">=</span> <span class="s1">&#39;/path/to/XP_CONTINUOUS_RAW.ecsv&#39;</span>
 <span class="n">synthetic_photometry</span> <span class="o">=</span> <span class="n">generate</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">photometric_system</span><span class="o">=</span><span class="n">phot_systems_list</span><span class="p">)</span>
 <span class="n">synthetic_photometry</span>
 </pre></div>
@@ -14691,7 +14691,7 @@ UserWarning: System GaiaDr3Vega does not have a correction table. The program wi
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">synth_phot_corrected</span> <span class="o">=</span> <span class="n">apply_error_correction</span><span class="p">(</span><span class="n">synthetic_photometry</span><span class="p">,</span> <span class="n">output_path</span><span class="o">=</span><span class="s1">&#39;/home/drm/Desktop&#39;</span><span class="p">,</span> <span class="n">output_file</span><span class="o">=</span><span class="s1">&#39;my_file&#39;</span><span class="p">,</span> <span class="n">output_format</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">synth_phot_corrected</span> <span class="o">=</span> <span class="n">apply_error_correction</span><span class="p">(</span><span class="n">synthetic_photometry</span><span class="p">,</span> <span class="n">output_path</span><span class="o">=</span><span class="s1">&#39;/output/path&#39;</span><span class="p">,</span> <span class="n">output_file</span><span class="o">=</span><span class="s1">&#39;my_file&#39;</span><span class="p">,</span> <span class="n">output_format</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
