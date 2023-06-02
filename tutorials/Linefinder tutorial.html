@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Linefinder tutorial</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Linefinder tutorial 2405</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -15510,7 +15510,16 @@ It uses an approach described in Weiler, M. et al. 2023, A&amp;A 671, A52.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="The-extremafinder-output:">The extremafinder output:<a class="anchor-link" href="#The-extremafinder-output:">&#182;</a></h3><p>All found extrema and their properties are returned as a pandas DataFrame. For each detected line following properties are provided: line_name, wavelength [nm], flux [W/nm/m^2], depth [W/nm/m^2], width [nm], significance [for externally calibrated spectrum], significance [for internally calibrated spectrum].</p>
+<h3 id="The-extremafinder-output:">The extremafinder output:<a class="anchor-link" href="#The-extremafinder-output:">&#182;</a></h3><p>All found extrema and their properties are returned as a pandas DataFrame. For each detected line following properties are provided:</p>
+<ul>
+<li>line_name,</li>
+<li>wavelength [nm]: calculated from pseudo-wavelength using the GaiaXPy dispersion function,</li>
+<li>flux [W/nm/m^2]: value of flux at the wavelength corresponding to the extremum at pseudo-wavelength,</li>
+<li>depth [W/nm/m^2]: difference between the line flux and the flux in estimated continuum,</li>
+<li>width [nm]: estimated by the distance between the closest inflection points,</li>
+<li>significance: the ratio between the line depth and the flux error at the extremum in the externally calibrated spectrum,</li>
+<li>sig_pwl: the ratio between the line depth and the flux error at the extremum in the internally calibrated spectrum.</li>
+</ul>
 
 </div>
 </div>
@@ -15533,19 +15542,7 @@ It uses an approach described in Weiler, M. et al. 2023, A&amp;A 671, A52.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>This tool gets the input internally calibrated mean spectra from the continuous representation to a sampled form, and it looks for emission and absorption lines. The lines can be defined by user or chosen from internal library, the source redshift and type can be specified.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Lines-in-stellar-spectra">Lines in stellar spectra<a class="anchor-link" href="#Lines-in-stellar-spectra">&#182;</a></h3><p>By default this tool provides a short list of lines (H_alpha, H_beta, HeI).</p>
+<h3 id="Lines-in-stellar-spectra">Lines in stellar spectra<a class="anchor-link" href="#Lines-in-stellar-spectra">&#182;</a></h3><p>By defauft this tool provides a short list of lines (H_alpha, H_beta, HeI).</p>
 
 </div>
 </div>
@@ -15696,7 +15693,7 @@ It uses an approach described in Weiler, M. et al. 2023, A&amp;A 671, A52.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Running-a-query">Running a query<a class="anchor-link" href="#Running-a-query">&#182;</a></h4>
+<h4 id="Running-a-query-(in-this-case-the-no-lines-are-found-for-the-retrieved-sources)">Running a query (in this case the no lines are found for the retrieved sources)<a class="anchor-link" href="#Running-a-query-(in-this-case-the-no-lines-are-found-for-the-retrieved-sources)">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -15996,7 +15993,16 @@ It uses an approach described in Weiler, M. et al. 2023, A&amp;A 671, A52.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="The-linefinder-output:">The linefinder output:<a class="anchor-link" href="#The-linefinder-output:">&#182;</a></h3><p>All found lines and their properties are returned as a pandas DataFrame. For each detected line following properties are provided: line name, wavelength [nm], flux [W/nm/m^2], depth [W/nm/m^2], width [nm], significance [externally calibrated], significance [internally calibrated].</p>
+<h3 id="The-linefinder-output:">The linefinder output:<a class="anchor-link" href="#The-linefinder-output:">&#182;</a></h3><p>All found lines and their properties are returned as a pandas DataFrame. For each detected line following properties are provided:</p>
+<ul>
+<li>line_name,</li>
+<li>wavelength [nm]: calculated from pseudo-wavelength using the GaiaXPy dispersion function,</li>
+<li>flux [W/nm/m^2]: value of flux at the wavelength corresponding to the extremum at pseudo-wavelength,</li>
+<li>depth [W/nm/m^2]: difference between the line flux and the flux in estimated continuum,</li>
+<li>width [nm]: estimated by the distance between the closest inflection points,</li>
+<li>significance: the ratio between the line depth and the flux error at the extremum in the externally calibrated spectrum,</li>
+<li>sig_pwl: the ratio between the line depth and the flux error at the extremum in the internally calibrated spectrum.</li>
+</ul>
 
 </div>
 </div>
