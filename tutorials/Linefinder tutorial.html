@@ -14608,7 +14608,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>This tool finds lines and extrema in the internally calibrated mean spectra.
-It uses an approach described in Weiler, M. et al. 2023, A&amp;A 671, A52.</p>
+It uses the approach described in Weiler, M. et al. 2023, A&amp;A 671, A52. This functionality is currently only available
+  from a development branch called line-finder available on the GitHub repository.</p>
 
 </div>
 </div>
@@ -14620,7 +14621,7 @@ It uses an approach described in Weiler, M. et al. 2023, A&amp;A 671, A52.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Find-extrema-in-the-internally-calibrated-mean-spectra">Find extrema in the internally calibrated mean spectra<a class="anchor-link" href="#Find-extrema-in-the-internally-calibrated-mean-spectra">&#182;</a></h2><p>This tool provides the list of extrema in the internally calibrated mean spectra. No evaluation of spectra in both sampled and continuous forms is performed.</p>
+<h2 id="Find-extrema-in-the-internally-calibrated-mean-spectra">Find extrema in the internally calibrated mean spectra<a class="anchor-link" href="#Find-extrema-in-the-internally-calibrated-mean-spectra">&#182;</a></h2><p>The fast finder tool provides the list of extrema in the internally calibrated mean spectra. No evaluation of spectra in both sampled and continuous forms is performed.</p>
 
 </div>
 </div>
@@ -14634,7 +14635,7 @@ It uses an approach described in Weiler, M. et al. 2023, A&amp;A 671, A52.</p>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import the tool</span>
-<span class="kn">from</span> <span class="nn">gaiaxpy</span> <span class="kn">import</span> <span class="n">fastfinder</span>
+<span class="kn">from</span> <span class="nn">gaiaxpy</span> <span class="kn">import</span> <span class="n">find_fast</span>
 </pre></div>
 
      </div>
@@ -14660,7 +14661,7 @@ It uses an approach described in Weiler, M. et al. 2023, A&amp;A 671, A52.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The available input types are: a pandas DataFrame, an ADQL query, a list of sourceIds, and a path to a file with XP CONTINUOUS RAW data (csv, ecsv, fits, or xml).</p>
+  <p>The available input types are: a pandas DataFrame, an ADQL query, a list of sourceIds, and a path to a file with XP CONTINUOUS RAW data (csv, ecsv, fits, or xml).</p>
 
 </div>
 </div>
@@ -14689,7 +14690,7 @@ It uses an approach described in Weiler, M. et al. 2023, A&amp;A 671, A52.</p>
 <span class="n">f</span> <span class="o">=</span> <span class="s1">&#39;/path/to/XP_CONTINUOUS_RAW.csv&#39;</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1"># The values in the DataFrame can be edited if the user wishes to do so.</span>
 
-<span class="n">extrema_pwl</span> <span class="o">=</span> <span class="n">fastfinder</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">extrema_pwl</span> <span class="o">=</span> <span class="n">find_fast</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 <span class="n">extrema_pwl</span>
 </pre></div>
 
@@ -14779,7 +14780,7 @@ It uses an approach described in Weiler, M. et al. 2023, A&amp;A 671, A52.</p>
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">query_input</span> <span class="o">=</span> <span class="s2">&quot;select TOP 2 source_id from gaiadr3.gaia_source where has_xp_continuous = &#39;True&#39;&quot;</span>
 
-<span class="n">extrema_pwl</span> <span class="o">=</span> <span class="n">fastfinder</span><span class="p">(</span><span class="n">query_input</span><span class="p">)</span>
+<span class="n">extrema_pwl</span> <span class="o">=</span> <span class="n">find_fast</span><span class="p">(</span><span class="n">query_input</span><span class="p">)</span>
 <span class="n">extrema_pwl</span>
 </pre></div>
 
@@ -14865,7 +14866,7 @@ It uses an approach described in Weiler, M. et al. 2023, A&amp;A 671, A52.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Passing-a-list">Passing a list<a class="anchor-link" href="#Passing-a-list">&#182;</a></h4><p>A list of sourceIds can be passed to the fastfinder as the first argument. The converter will then query the Archive for these objects.</p>
+<h4 id="Passing-a-list">Passing a list<a class="anchor-link" href="#Passing-a-list">&#182;</a></h4><p>A list of sourceIds can be passed to the find_fast as the first argument. The converter will then query the Archive for these objects.</p>
 
 </div>
 </div>
@@ -14880,7 +14881,7 @@ It uses an approach described in Weiler, M. et al. 2023, A&amp;A 671, A52.</p>
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sources_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;5853498713190525696&#39;</span><span class="p">,</span> <span class="mi">5762406957886626816</span><span class="p">]</span> <span class="c1"># The sourceIds can be string or long.</span>
 
-<span class="n">extrema_pwl</span> <span class="o">=</span> <span class="n">fastfinder</span><span class="p">(</span><span class="n">sources_list</span><span class="p">)</span>
+<span class="n">extrema_pwl</span> <span class="o">=</span> <span class="n">find_fast</span><span class="p">(</span><span class="n">sources_list</span><span class="p">)</span>
 <span class="n">extrema_pwl</span>
 </pre></div>
 
@@ -14971,7 +14972,7 @@ It uses an approach described in Weiler, M. et al. 2023, A&amp;A 671, A52.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Path to file with XP CONTINUOUS RAW data (csv, ecsv, fits, or xml)</span>
 <span class="n">f</span> <span class="o">=</span> <span class="s1">&#39;/path/to/XP_CONTINUOUS_RAW.fits&#39;</span>
 
-<span class="n">extrema_pwl</span> <span class="o">=</span> <span class="n">fastfinder</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">extrema_pwl</span> <span class="o">=</span> <span class="n">find_fast</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 <span class="n">extrema_pwl</span>
 </pre></div>
 
@@ -15047,7 +15048,7 @@ It uses an approach described in Weiler, M. et al. 2023, A&amp;A 671, A52.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="The-fastfinder-output:">The fastfinder output:<a class="anchor-link" href="#The-fastfinder-output:">&#182;</a></h3><p>The fastfinder returns all found extrema as a pandas DataFrame. The DataFrame contains a list of pseudowavelengths for extrema in BP and RP for each source, respectively.</p>
+<h3 id="The-fastfinder-output:">The fast finder output:<a class="anchor-link" href="#The-fastfinder-output:">&#182;</a></h3><p>The fast finder returns all found extrema as a pandas DataFrame. The DataFrame contains a list of pseudowavelengths for extrema in BP and RP for each source, respectively.</p>
 
 </div>
 </div>
@@ -15059,7 +15060,7 @@ It uses an approach described in Weiler, M. et al. 2023, A&amp;A 671, A52.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Find-extrema-(and-their-properties)-in-the-internally-calibrated-mean-spectra">Find extrema (and their properties) in the internally calibrated mean spectra<a class="anchor-link" href="#Find-extrema-(and-their-properties)-in-the-internally-calibrated-mean-spectra">&#182;</a></h2><p>This tool looks for all extrema in the internally calibrated mean spectra. It also converts internally calibrated mean spectra from the continuous representation to an externally calibrated sampled form. The converted spectrum is used to provide basic properties of detected extrema.</p>
+<h2 id="Find-extrema-(and-their-properties)-in-the-internally-calibrated-mean-spectra">Find extrema (and their properties) in the internally calibrated mean spectra<a class="anchor-link" href="#Find-extrema-(and-their-properties)-in-the-internally-calibrated-mean-spectra">&#182;</a></h2><p>The find_extrema tool looks for all extrema in the internally calibrated mean spectra. It also converts internally calibrated mean spectra from the continuous representation to an externally calibrated sampled form. The converted spectrum is used to provide basic properties of detected extrema.</p>
 
 </div>
 </div>
@@ -15073,7 +15074,7 @@ It uses an approach described in Weiler, M. et al. 2023, A&amp;A 671, A52.</p>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import the tool</span>
-<span class="kn">from</span> <span class="nn">gaiaxpy</span> <span class="kn">import</span> <span class="n">extremafinder</span>
+<span class="kn">from</span> <span class="nn">gaiaxpy</span> <span class="kn">import</span> <span class="n">find_extrema</span>
 </pre></div>
 
      </div>
@@ -15128,7 +15129,7 @@ It uses an approach described in Weiler, M. et al. 2023, A&amp;A 671, A52.</p>
 <span class="n">f</span> <span class="o">=</span> <span class="s1">&#39;/path/to/XP_CONTINUOUS_RAW.csv&#39;</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1"># The values in the DataFrame can be edited if the user wishes to do so.</span>
 
-<span class="n">extrema</span> <span class="o">=</span> <span class="n">extremafinder</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">extrema</span> <span class="o">=</span> <span class="n">find_extrema</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 <span class="n">extrema</span>
 </pre></div>
 
@@ -15225,7 +15226,7 @@ It uses an approach described in Weiler, M. et al. 2023, A&amp;A 671, A52.</p>
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">query_input</span> <span class="o">=</span> <span class="s2">&quot;select TOP 2 source_id from gaiadr3.gaia_source where has_xp_continuous = &#39;True&#39;&quot;</span>
 
-<span class="n">extrema</span> <span class="o">=</span> <span class="n">extremafinder</span><span class="p">(</span><span class="n">query_input</span><span class="p">)</span>
+<span class="n">extrema</span> <span class="o">=</span> <span class="n">find_extrema</span><span class="p">(</span><span class="n">query_input</span><span class="p">)</span>
 <span class="n">extrema</span>
 </pre></div>
 
@@ -15318,7 +15319,7 @@ It uses an approach described in Weiler, M. et al. 2023, A&amp;A 671, A52.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Passing-a-list">Passing a list<a class="anchor-link" href="#Passing-a-list">&#182;</a></h4><p>A list of sourceIds can be passed to the extremafinder as the first argument. The converter will then query the Archive for these objects.</p>
+<h4 id="Passing-a-list">Passing a list<a class="anchor-link" href="#Passing-a-list">&#182;</a></h4><p>A list of sourceIds can be passed as the first argument. The converter will then query the Archive for these objects.</p>
 
 </div>
 </div>
@@ -15333,7 +15334,7 @@ It uses an approach described in Weiler, M. et al. 2023, A&amp;A 671, A52.</p>
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sources_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;5853498713190525696&#39;</span><span class="p">,</span> <span class="mi">5762406957886626816</span><span class="p">]</span> <span class="c1"># The sourceIds can be string or long.</span>
 
-<span class="n">extrema</span> <span class="o">=</span> <span class="n">extremafinder</span><span class="p">(</span><span class="n">sources_list</span><span class="p">)</span>
+<span class="n">extrema</span> <span class="o">=</span> <span class="n">find_extrema</span><span class="p">(</span><span class="n">sources_list</span><span class="p">)</span>
 <span class="n">extrema</span>
 </pre></div>
 
@@ -15431,7 +15432,7 @@ It uses an approach described in Weiler, M. et al. 2023, A&amp;A 671, A52.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Path to file with XP CONTINUOUS RAW data (csv, ecsv, fits, or xml)</span>
 <span class="n">f</span> <span class="o">=</span> <span class="s1">&#39;/path/to/XP_CONTINUOUS_RAW.fits&#39;</span>
 
-<span class="n">extrema</span> <span class="o">=</span> <span class="n">extremafinder</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">extrema</span> <span class="o">=</span> <span class="n">find_extrema</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 <span class="n">extrema</span>
 </pre></div>
 
@@ -15514,7 +15515,7 @@ It uses an approach described in Weiler, M. et al. 2023, A&amp;A 671, A52.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="The-extremafinder-output:">The extremafinder output:<a class="anchor-link" href="#The-extremafinder-output:">&#182;</a></h3><p>All found extrema and their properties are returned as a pandas DataFrame. For each detected line following properties are provided:</p>
+<h3 id="The-extremafinder-output:">The extrema finder output:<a class="anchor-link" href="#The-extremafinder-output:">&#182;</a></h3><p>All found extrema and their properties are returned as a pandas DataFrame. For each detected line following properties are provided:</p>
 <ul>
 <li>line_name,</li>
 <li>wavelength [nm]: calculated from pseudo-wavelength using the GaiaXPy dispersion function,</li>
@@ -15560,7 +15561,7 @@ It uses an approach described in Weiler, M. et al. 2023, A&amp;A 671, A52.</p>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import the tool</span>
-<span class="kn">from</span> <span class="nn">gaiaxpy</span> <span class="kn">import</span> <span class="n">linefinder</span>
+<span class="kn">from</span> <span class="nn">gaiaxpy</span> <span class="kn">import</span> <span class="n">find_lines</span>
 </pre></div>
 
      </div>
@@ -15615,7 +15616,7 @@ It uses an approach described in Weiler, M. et al. 2023, A&amp;A 671, A52.</p>
 <span class="n">f</span> <span class="o">=</span> <span class="s1">&#39;/path/to/XP_CONTINUOUS_RAW.csv&#39;</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1"># The values in the DataFrame can be edited if the user wishes to do so.</span>
 
-<span class="n">lines</span> <span class="o">=</span> <span class="n">linefinder</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">find_lines</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 <span class="n">lines</span>
 </pre></div>
 
@@ -15712,7 +15713,7 @@ It uses an approach described in Weiler, M. et al. 2023, A&amp;A 671, A52.</p>
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">query_input</span> <span class="o">=</span> <span class="s2">&quot;select TOP 2 source_id from gaiadr3.gaia_source where has_xp_continuous = &#39;True&#39;&quot;</span>
 
-<span class="n">lines</span> <span class="o">=</span> <span class="n">linefinder</span><span class="p">(</span><span class="n">query_input</span><span class="p">)</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">find_lines</span><span class="p">(</span><span class="n">query_input</span><span class="p">)</span>
 <span class="n">lines</span>
 </pre></div>
 
@@ -15805,7 +15806,7 @@ It uses an approach described in Weiler, M. et al. 2023, A&amp;A 671, A52.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Passing-a-list">Passing a list<a class="anchor-link" href="#Passing-a-list">&#182;</a></h4><p>A list of sourceIds can be passed to the extremafinder as the first argument. The converter will then query the Archive for these objects.</p>
+<h4 id="Passing-a-list">Passing a list<a class="anchor-link" href="#Passing-a-list">&#182;</a></h4><p>A list of sourceIds can be passed to find_extrema as the first argument. The converter will then query the Archive for these objects.</p>
 
 </div>
 </div>
@@ -16185,7 +16186,7 @@ It uses an approach described in Weiler, M. et al. 2023, A&amp;A 671, A52.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># A list of sourceIds</span>
 <span class="n">sources_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5853498713190525696</span><span class="p">,</span> <span class="mi">5762406957886626816</span><span class="p">]</span> 
 
-<span class="n">extrema_pwl_tr</span> <span class="o">=</span> <span class="n">fastfinder</span><span class="p">(</span><span class="n">sources_list</span><span class="p">,</span> <span class="n">truncation</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">extrema_pwl_tr</span> <span class="o">=</span> <span class="n">find_fast</span><span class="p">(</span><span class="n">sources_list</span><span class="p">,</span> <span class="n">truncation</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">extrema_pwl_tr</span>
 </pre></div>
 
