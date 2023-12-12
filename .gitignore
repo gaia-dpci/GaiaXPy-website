@@ -1,3 +1,7 @@
 .idea/
 .ipynb_checkpoints/
 *.ipynb
+output_lines.csv
+output_lines.fits
+lines_5853498713190525696.jpg
+my_file.ecsv
