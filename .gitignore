@@ -5,3 +5,7 @@ output_lines.csv
 output_lines.fits
 lines_5853498713190525696.jpg
 my_file.ecsv
+README.md
+scripts/
+# Publish the current downloadable tutorial notebooks only.
+!tutorials/current/*.ipynb
