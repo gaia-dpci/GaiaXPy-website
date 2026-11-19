@@ -55,19 +55,22 @@ h1, h2, h3, h4, h5, h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
-  transition: all 0.5s;
+  transition: background 0.5s, padding 0.5s;
   z-index: 997;
-  padding: 20px 0;
+  padding: 10px 0;
   background: rgba(55, 64, 85, 0.9);
-  top: 110px;
+  top: 0;
 }
+
 #header.header-transparent {
-  background: transparent;
+  background: rgba(55, 64, 85, 0.9);
 }
+
 #header.header-scrolled {
   background: rgba(55, 64, 85, 0.9);
   padding: 15px 0;
 }
+
 #header .logo {
   font-size: 28px;
   margin: 0;
