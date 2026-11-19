@@ -59,6 +59,7 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 997;
   padding: 20px 0;
   background: rgba(55, 64, 85, 0.9);
+  top: 110px;
 }
 #header.header-transparent {
   background: transparent;
@@ -87,11 +88,21 @@ h1, h2, h3, h4, h5, h6 {
 # Announcement banner
 --------------------------------------------------------------*/
 .banner {
-  background-color: #f39c12; /* Bright yellowish color */
-  color: #000; /* Black text color */
-  text-align: center;
-  padding: 0px;
-  margin-top: -20px;
+    position: relative;
+    z-index: 1001;
+    background-color: #34495e;
+    color: #ffffff;
+    text-align: center;
+    padding: 12px 24px;
+    line-height: 1.5;
+}
+
+.banner p {
+    margin: 0 0 10px 0;
+}
+
+.banner p:last-child {
+    margin-bottom: 0;
 }
 
 /*--------------------------------------------------------------
